@@ -1,12 +1,22 @@
-import { ModeToggle } from "@/components/mode-toggle";
-import { UserButton } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
-export default function Home() {
-  return (
-    <div>
-      <UserButton afterSignOutUrl="/" />
+import { initialProfile } from "@/lib/initial-profile";
+import { db } from "@/lib/db";
 
-      <ModeToggle />
-    </div>
-  );
-}
+const Home = async () => {
+  const profile = await initialProfile();
+  const server = await db.server.findFirst({
+    where: {
+      members: {
+        some: {
+          profileId: profile.id,
+        },
+      },
+    },
+  });
+
+  if (server) return redirect(`/servers/${server.id}`);
+
+  return <div>Create A SERVER</div>;
+};
+export default Home;
