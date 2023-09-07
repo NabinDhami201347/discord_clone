@@ -18,7 +18,7 @@ const FileUpload = ({ value, endPoint, onChange }: IFileUploadProps) => {
   if (value && fileType !== "pdf") {
     return (
       <div className="relative h-20 w-20">
-        <Image fill src={value} alt="serverImage" className="rounded-full" />
+        <Image fill src={value} alt="serverImage" className="rounded-full " />
         <button
           type="button"
           onClick={() => onChange("")}
