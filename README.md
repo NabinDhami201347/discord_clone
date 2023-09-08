@@ -17,6 +17,12 @@ pnpm i @prisma/client
 ```
 
 ```sh
+npx prisma migrate reset
+npx prisma generate
+npx prisma db push
+```
+
+```sh
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_anVzdC1oYWxpYnV0LTMxLmNsZXJrLmFjY291bnRzLmRldiQ
 CLERK_SECRET_KEY=sk_test_2SNtNo3bEK86DpKJ4e4KlCVgwLVWb5K8vFtbEFouO3
 
