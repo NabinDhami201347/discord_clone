@@ -25,18 +25,18 @@ const NavigationItem = ({ id, imageUrl, name }: INavigationItem) => {
         <div
           className={cn(
             "absolute left-0 bg-primary rounded-r-full transition-all w-[4px]",
-            params?.serverId !== id && "group-hover:h-[20px]",
-            params?.serverId === id ? "h-[36px] " : "h-[8px]"
+            params?.serverId !== id && "group-hover:h-[30px]",
+            params?.serverId === id ? "h-[36px] " : "h-[10px]"
           )}
         />
 
         <div
           className={cn(
-            "relative group mx-3 h-[48px] w-[48px] rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden",
-            params?.serverId === id && "bg-primary/10 text-primary rounded-[16px]"
+            "relative group mx-3 h-12 w-12 rounded-full transition-all overflow-hidden",
+            params?.serverId === id && "bg-primary/10 text-primary"
           )}
         >
-          <Image fill src={imageUrl} alt="channel" />
+          <Image fill src={imageUrl} objectFit="cover" alt="channel" />
         </div>
       </button>
     </ActionTooltip>
