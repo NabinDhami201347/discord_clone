@@ -8,7 +8,7 @@ interface IToolTipProps {
   side?: "top" | "bottom" | "left" | "right";
   align?: "start" | "center" | "end";
 }
-const ActionTooltip = ({ label, align, side, children }: IToolTipProps) => {
+export const ActionTooltip = ({ label, align, side, children }: IToolTipProps) => {
   return (
     <TooltipProvider>
       <Tooltip delayDuration={50}>
@@ -20,5 +20,3 @@ const ActionTooltip = ({ label, align, side, children }: IToolTipProps) => {
     </TooltipProvider>
   );
 };
-
-export default ActionTooltip;
