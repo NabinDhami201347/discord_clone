@@ -14,8 +14,13 @@ export async function GET(req: Request) {
     const cursor = searchParams.get("cursor");
     const channelId = searchParams.get("channelId");
 
-    if (!profile) return new NextResponse("Unauthorized", { status: 401 });
-    if (!channelId) return new NextResponse("Channel ID missing", { status: 400 });
+    if (!profile) {
+      return new NextResponse("Unauthorized", { status: 401 });
+    }
+
+    if (!channelId) {
+      return new NextResponse("Channel ID missing", { status: 400 });
+    }
 
     let messages: Message[] = [];
 

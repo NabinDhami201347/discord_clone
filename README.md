@@ -67,11 +67,24 @@ const { searchParams } = new URL(req.url);
 
 const cursor = searchParams.get("cursor");
 const channelId = searchParams.get("channelId");
-``
+```
 
+## Handling Escape
 
+```js
+useEffect(() => {
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Escape" || event.keyCode === 27) {
+      setIsEditing(false);
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => window.removeEventListener("keyDown", handleKeyDown);
+}, []);
+```
 
 [Authentication](https://clerk.com/docs/quickstarts/nextjs)
 [Dark Mode](https://ui.shadcn.com/docs/dark-mode/next)
 [Upload Things](https://docs.uploadthing.com/getting-started)
-```
