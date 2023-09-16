@@ -44,6 +44,34 @@ UPLOADTHING_SECRET=sk_live_c01859a5dc0d1f22abbad5d5de913fd6dcf8fae5b791840d85c39
 UPLOADTHING_APP_ID=xraghg6ih9
 ```
 
+```js
+const fetchMessages = async ({ pageParam = undefined }) => {
+  const url = qs.stringifyUrl(
+    {
+      url: apiUrl, // "/api/messages"
+      query: {
+        cursor: pageParam,
+        [paramKey]: paramValue, // paramValue={channel.id} paramKey="channelId"
+      },
+    },
+    { skipNull: true }
+  );
+
+  const res = await fetch(url);
+  return res.json();
+};
+```
+
+```js
+const { searchParams } = new URL(req.url);
+
+const cursor = searchParams.get("cursor");
+const channelId = searchParams.get("channelId");
+``
+
+
+
 [Authentication](https://clerk.com/docs/quickstarts/nextjs)
 [Dark Mode](https://ui.shadcn.com/docs/dark-mode/next)
 [Upload Things](https://docs.uploadthing.com/getting-started)
+```
