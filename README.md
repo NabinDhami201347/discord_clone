@@ -1,90 +1,36 @@
-```sh
-pnpm create next-app@latest my-app --typescript --tailwind --eslint
-pnpm dlx shadcn-ui@latest init
-pnpm dlx shadcn-ui@latest add button
+# [Fullstack Discord Clone | Next.js 13, Socket.io, Clerk, Prisma ](https://www.youtube.com/watch?v=ZbX4Ok9YX94&t=38160s&ab_channel=CodeWithAntonio)
 
-pnpm i @clerk/nextjs
-```
+![](public/screenshots/desktop.png)
+![](public/screenshots/desktop1.png)
+![](public/screenshots/desktop2.png)
+![](public/screenshots/desktop3.png)
+![](public/screenshots/desktop4.png)
+![](public/screenshots/desktop5.png)
+![](public/screenshots/desktop6.png)
+![](public/screenshots/desktop7.png)
+![](public/screenshots/desktop8.png)
+![](public/screenshots/desktop9.png)
+![](public/screenshots/mobile.png)
+![](public/screenshots/mobile1.png)
 
-```sh
-pnpm i -D prisma
-pnpm dlx prisma init
-pnpm dlx prisma generate
-pnpm dlx prisma db push
+## Features
 
+- Real-time messaging using Socket.io
+- Send attachments as messages using UploadThing
+- Delete & Edit messages in real time for all users
+- Create Text, Audio and Video Channels
+- 1:1 conversation between members
+- Member management (Kick, Role change Guest / Moderator)
+- Unique invite link generation & full working invite system
+- Infinite loading for messages in batches of 10 (tanstack/query)
+- Server creation and customization
+- Beautiful UI using TailwindCSS and ShadcnUI
+- Full responsivity and mobile UI
+- Light / Dark mode
+- Websocket fallback: Polling with alerts
+- ORM using Prisma
+- Authentication with Clerk
 
-pnpm i @prisma/client
-```
-
-```sh
-npx prisma migrate reset
-npx prisma generate
-npx prisma db push
-```
-
-```sh
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_anVzdC1oYWxpYnV0LTMxLmNsZXJrLmFjY291bnRzLmRldiQ
-CLERK_SECRET_KEY=sk_test_2SNtNo3bEK86DpKJ4e4KlCVgwLVWb5K8vFtbEFouO3
-
-NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
-NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
-NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
-NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
-
-# This was inserted by `prisma init`:
-# Environment variables declared in this file are automatically made available to Prisma.
-# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
-
-# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
-# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
-
-DATABASE_URL="mysql://root:@localhost:3306/discord_clone"
-
-UPLOADTHING_SECRET=sk_live_c01859a5dc0d1f22abbad5d5de913fd6dcf8fae5b791840d85c3962be0c0114a
-UPLOADTHING_APP_ID=xraghg6ih9
-```
-
-```js
-const fetchMessages = async ({ pageParam = undefined }) => {
-  const url = qs.stringifyUrl(
-    {
-      url: apiUrl, // "/api/messages"
-      query: {
-        cursor: pageParam,
-        [paramKey]: paramValue, // paramValue={channel.id} paramKey="channelId"
-      },
-    },
-    { skipNull: true }
-  );
-
-  const res = await fetch(url);
-  return res.json();
-};
-```
-
-```js
-const { searchParams } = new URL(req.url);
-
-const cursor = searchParams.get("cursor");
-const channelId = searchParams.get("channelId");
-```
-
-## Handling Escape
-
-```js
-useEffect(() => {
-  const handleKeyDown = (event: any) => {
-    if (event.key === "Escape" || event.keyCode === 27) {
-      setIsEditing(false);
-    }
-  };
-
-  window.addEventListener("keydown", handleKeyDown);
-
-  return () => window.removeEventListener("keyDown", handleKeyDown);
-}, []);
-```
-
-[Authentication](https://clerk.com/docs/quickstarts/nextjs)
-[Dark Mode](https://ui.shadcn.com/docs/dark-mode/next)
-[Upload Things](https://docs.uploadthing.com/getting-started)
+> [Authentication](https://clerk.com/docs/quickstarts/nextjs)
+> | [Dark Mode](https://ui.shadcn.com/docs/dark-mode/next)
+> | [Upload Things](https://docs.uploadthing.com/getting-started)
